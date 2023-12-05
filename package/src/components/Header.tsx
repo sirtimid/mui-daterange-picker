@@ -1,8 +1,8 @@
-import {FormControl, Grid, IconButton, MenuItem, Select, SelectChangeEvent} from '@mui/material';
-import React from 'react';
-import ChevronLeft from '@mui/icons-material/ChevronLeft';
-import ChevronRight from '@mui/icons-material/ChevronRight';
-import {getMonth, getYear, setMonth, setYear} from 'date-fns';
+import { FormControl, Grid, IconButton, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import React from "react";
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import ChevronRight from "@mui/icons-material/ChevronRight";
+import { getMonth, getYear, setMonth, setYear } from "date-fns";
 
 interface HeaderProps {
   date: Date;
@@ -29,11 +29,12 @@ const Header: React.FunctionComponent<HeaderProps> = ({
   prevDisabled,
   onClickNext,
   onClickPrevious,
-  locale
+  locale,
 }: HeaderProps) => {
-  const MONTHS = typeof locale !== 'undefined'
-    ? [...Array(12).keys()].map(d => locale.localize?.month(d, {width: 'abbreviated', context: 'standalone'}))
-    : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  const MONTHS =
+    typeof locale !== "undefined"
+      ? [...Array(12).keys()].map((d) => locale.localize?.month(d, { width: "abbreviated", context: "standalone" }))
+      : ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const handleMonthChange = (event: SelectChangeEvent<number>) => {
     setDate(setMonth(date, parseInt(event.target.value as string, 10)));
@@ -45,28 +46,24 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 
   return (
     <Grid container justifyContent="space-between" alignItems="center">
-      <Grid item sx={{ padding: '5px' }}>
+      <Grid item sx={{ padding: "5px" }}>
         <IconButton
           sx={{
-            padding: '10px',
-            '&:hover': {
-              background: 'none',
+            padding: "10px",
+            "&:hover": {
+              background: "none",
             },
           }}
           disabled={prevDisabled}
           onClick={onClickPrevious}
           // size="large"
         >
-          <ChevronLeft color={prevDisabled ? 'disabled' : 'action'} />
+          <ChevronLeft color={prevDisabled ? "disabled" : "action"} />
         </IconButton>
       </Grid>
       <Grid item>
         <FormControl variant="standard">
-          <Select
-            value={getMonth(date)}
-            onChange={handleMonthChange}
-            MenuProps={{disablePortal: true}}
-          >
+          <Select value={getMonth(date)} onChange={handleMonthChange}>
             {MONTHS.map((month, idx) => (
               <MenuItem key={month} value={idx}>
                 {month}
@@ -78,11 +75,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 
       <Grid item>
         <FormControl variant="standard">
-          <Select
-            value={getYear(date)}
-            onChange={handleYearChange}
-            MenuProps={{ disablePortal: true }}
-          >
+          <Select value={getYear(date)} onChange={handleYearChange}>
             {generateYears(date, 30).map((year) => (
               <MenuItem key={year} value={year}>
                 {year}
@@ -93,19 +86,19 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 
         {/* <Typography>{format(date, "MMMM YYYY")}</Typography> */}
       </Grid>
-      <Grid item sx={{ padding: '5px' }}>
+      <Grid item sx={{ padding: "5px" }}>
         <IconButton
           sx={{
-            padding: '10px',
-            '&:hover': {
-              background: 'none',
+            padding: "10px",
+            "&:hover": {
+              background: "none",
             },
           }}
           disabled={nextDisabled}
           onClick={onClickNext}
           // size="large"
         >
-          <ChevronRight color={nextDisabled ? 'disabled' : 'action'} />
+          <ChevronRight color={nextDisabled ? "disabled" : "action"} />
         </IconButton>
       </Grid>
     </Grid>
