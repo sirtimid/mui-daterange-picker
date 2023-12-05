@@ -1,5 +1,5 @@
-import React from 'react';
-import { DateRange, DefinedRange, Setter, NavigationAction } from '../types';
+import React from "react";
+import { DateRange, DefinedRange, Setter, NavigationAction } from "../types";
 interface MenuProps {
     dateRange: DateRange;
     ranges: DefinedRange[];

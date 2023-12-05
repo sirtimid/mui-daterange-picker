@@ -5,7 +5,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var React = require('react');
 var material = require('@mui/material');
 var dateFns = require('date-fns');
-var ArrowRightAlt = require('@mui/icons-material/ArrowRightAlt');
 var ChevronLeft = require('@mui/icons-material/ChevronLeft');
 var ChevronRight = require('@mui/icons-material/ChevronRight');
 
@@ -31,7 +30,6 @@ function _interopNamespace(e) {
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var ArrowRightAlt__default = /*#__PURE__*/_interopDefaultLegacy(ArrowRightAlt);
 var ChevronLeft__default = /*#__PURE__*/_interopDefaultLegacy(ChevronLeft);
 var ChevronRight__default = /*#__PURE__*/_interopDefaultLegacy(ChevronRight);
 
@@ -260,11 +258,14 @@ const MARKERS = {
 
 /* eslint-disable object-curly-newline */
 const Menu = (props) => {
-    const { ranges, dateRange, minDate, maxDate, firstMonth, setFirstMonth, secondMonth, setSecondMonth, setDateRange, helpers, handlers, locale } = props;
-    const { startDate, endDate } = dateRange;
+    const { ranges, dateRange, minDate, maxDate, firstMonth, setFirstMonth, secondMonth, setSecondMonth, setDateRange, helpers, handlers, locale, } = props;
     const canNavigateCloser = dateFns.differenceInCalendarMonths(secondMonth, firstMonth) >= 2;
     const commonProps = {
-        dateRange, minDate, maxDate, helpers, handlers,
+        dateRange,
+        minDate,
+        maxDate,
+        helpers,
+        handlers,
     };
     return (React__default["default"].createElement(material.Paper, { elevation: 5, square: true },
         React__default["default"].createElement(material.Grid, { container: true, direction: "row", wrap: "nowrap" },
@@ -272,14 +273,6 @@ const Menu = (props) => {
                 React__default["default"].createElement(DefinedRanges, { selectedRange: dateRange, ranges: ranges, setRange: setDateRange })),
             React__default["default"].createElement(material.Divider, { orientation: "vertical", flexItem: true }),
             React__default["default"].createElement(material.Grid, null,
-                React__default["default"].createElement(material.Grid, { container: true, sx: { padding: '20px 70px' }, alignItems: "center" },
-                    React__default["default"].createElement(material.Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default["default"].createElement(material.Typography, { variant: "subtitle1" }, startDate ? dateFns.format(startDate, 'dd MMMM yyyy', { locale }) : 'Start Date')),
-                    React__default["default"].createElement(material.Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default["default"].createElement(ArrowRightAlt__default["default"], { color: "action" })),
-                    React__default["default"].createElement(material.Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default["default"].createElement(material.Typography, { variant: "subtitle1" }, endDate ? dateFns.format(endDate, 'dd MMMM yyyy', { locale }) : 'End Date'))),
-                React__default["default"].createElement(material.Divider, null),
                 React__default["default"].createElement(material.Grid, { container: true, direction: "row", justifyContent: "center", wrap: "nowrap" },
                     React__default["default"].createElement(Month, Object.assign({}, commonProps, { value: firstMonth, setValue: setFirstMonth, navState: [true, canNavigateCloser], marker: MARKERS.FIRST_MONTH, locale: locale })),
                     React__default["default"].createElement(material.Divider, { orientation: "vertical", flexItem: true }),

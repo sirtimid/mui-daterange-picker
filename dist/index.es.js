@@ -2,7 +2,6 @@ import * as React from 'react';
 import React__default from 'react';
 import { Grid, IconButton, FormControl, Select, MenuItem, Box, Typography, Paper, List, ListItem, ListItemText, Divider } from '@mui/material';
 import { parseISO, isValid, max, min, isSameMonth, addMonths, isSameDay, isWithinInterval, startOfWeek, startOfMonth, endOfWeek, endOfMonth, isBefore, addDays, addWeeks, startOfYear, endOfYear, addYears, getMonth, getYear, setMonth, setYear, format, isToday, getDate, differenceInCalendarMonths, isAfter } from 'date-fns';
-import ArrowRightAlt from '@mui/icons-material/ArrowRightAlt';
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
 
@@ -231,11 +230,14 @@ const MARKERS = {
 
 /* eslint-disable object-curly-newline */
 const Menu = (props) => {
-    const { ranges, dateRange, minDate, maxDate, firstMonth, setFirstMonth, secondMonth, setSecondMonth, setDateRange, helpers, handlers, locale } = props;
-    const { startDate, endDate } = dateRange;
+    const { ranges, dateRange, minDate, maxDate, firstMonth, setFirstMonth, secondMonth, setSecondMonth, setDateRange, helpers, handlers, locale, } = props;
     const canNavigateCloser = differenceInCalendarMonths(secondMonth, firstMonth) >= 2;
     const commonProps = {
-        dateRange, minDate, maxDate, helpers, handlers,
+        dateRange,
+        minDate,
+        maxDate,
+        helpers,
+        handlers,
     };
     return (React__default.createElement(Paper, { elevation: 5, square: true },
         React__default.createElement(Grid, { container: true, direction: "row", wrap: "nowrap" },
@@ -243,14 +245,6 @@ const Menu = (props) => {
                 React__default.createElement(DefinedRanges, { selectedRange: dateRange, ranges: ranges, setRange: setDateRange })),
             React__default.createElement(Divider, { orientation: "vertical", flexItem: true }),
             React__default.createElement(Grid, null,
-                React__default.createElement(Grid, { container: true, sx: { padding: '20px 70px' }, alignItems: "center" },
-                    React__default.createElement(Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default.createElement(Typography, { variant: "subtitle1" }, startDate ? format(startDate, 'dd MMMM yyyy', { locale }) : 'Start Date')),
-                    React__default.createElement(Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default.createElement(ArrowRightAlt, { color: "action" })),
-                    React__default.createElement(Grid, { item: true, sx: { flex: 1, textAlign: 'center' } },
-                        React__default.createElement(Typography, { variant: "subtitle1" }, endDate ? format(endDate, 'dd MMMM yyyy', { locale }) : 'End Date'))),
-                React__default.createElement(Divider, null),
                 React__default.createElement(Grid, { container: true, direction: "row", justifyContent: "center", wrap: "nowrap" },
                     React__default.createElement(Month, Object.assign({}, commonProps, { value: firstMonth, setValue: setFirstMonth, navState: [true, canNavigateCloser], marker: MARKERS.FIRST_MONTH, locale: locale })),
                     React__default.createElement(Divider, { orientation: "vertical", flexItem: true }),
