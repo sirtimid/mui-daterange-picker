@@ -124,10 +124,10 @@ const Header = ({ date, setDate, nextDisabled, prevDisabled, onClickNext, onClic
                 React__default.createElement(ChevronLeft, { color: prevDisabled ? "disabled" : "action" }))),
         React__default.createElement(Grid, { item: true },
             React__default.createElement(FormControl, { variant: "standard" },
-                React__default.createElement(Select, { value: getMonth(date), onChange: handleMonthChange }, MONTHS.map((month, idx) => (React__default.createElement(MenuItem, { key: month, value: idx }, month)))))),
+                React__default.createElement(Select, { value: getMonth(date), onChange: handleMonthChange, disableUnderline: true }, MONTHS.map((month, idx) => (React__default.createElement(MenuItem, { key: month, value: idx }, month)))))),
         React__default.createElement(Grid, { item: true },
             React__default.createElement(FormControl, { variant: "standard" },
-                React__default.createElement(Select, { value: getYear(date), onChange: handleYearChange }, generateYears(date, 30).map((year) => (React__default.createElement(MenuItem, { key: year, value: year }, year)))))),
+                React__default.createElement(Select, { value: getYear(date), onChange: handleYearChange, disableUnderline: true }, generateYears(date, 30).map((year) => (React__default.createElement(MenuItem, { key: year, value: year }, year)))))),
         React__default.createElement(Grid, { item: true, sx: { padding: "5px" } },
             React__default.createElement(IconButton, { sx: {
                     padding: "10px",

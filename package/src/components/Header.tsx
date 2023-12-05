@@ -63,7 +63,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
       </Grid>
       <Grid item>
         <FormControl variant="standard">
-          <Select value={getMonth(date)} onChange={handleMonthChange}>
+          <Select value={getMonth(date)} onChange={handleMonthChange} disableUnderline>
             {MONTHS.map((month, idx) => (
               <MenuItem key={month} value={idx}>
                 {month}
@@ -75,7 +75,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 
       <Grid item>
         <FormControl variant="standard">
-          <Select value={getYear(date)} onChange={handleYearChange}>
+          <Select value={getYear(date)} onChange={handleYearChange} disableUnderline>
             {generateYears(date, 30).map((year) => (
               <MenuItem key={year} value={year}>
                 {year}

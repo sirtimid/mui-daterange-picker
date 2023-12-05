@@ -153,10 +153,10 @@ const Header = ({ date, setDate, nextDisabled, prevDisabled, onClickNext, onClic
                 React__default["default"].createElement(ChevronLeft__default["default"], { color: prevDisabled ? "disabled" : "action" }))),
         React__default["default"].createElement(material.Grid, { item: true },
             React__default["default"].createElement(material.FormControl, { variant: "standard" },
-                React__default["default"].createElement(material.Select, { value: dateFns.getMonth(date), onChange: handleMonthChange }, MONTHS.map((month, idx) => (React__default["default"].createElement(material.MenuItem, { key: month, value: idx }, month)))))),
+                React__default["default"].createElement(material.Select, { value: dateFns.getMonth(date), onChange: handleMonthChange, disableUnderline: true }, MONTHS.map((month, idx) => (React__default["default"].createElement(material.MenuItem, { key: month, value: idx }, month)))))),
         React__default["default"].createElement(material.Grid, { item: true },
             React__default["default"].createElement(material.FormControl, { variant: "standard" },
-                React__default["default"].createElement(material.Select, { value: dateFns.getYear(date), onChange: handleYearChange }, generateYears(date, 30).map((year) => (React__default["default"].createElement(material.MenuItem, { key: year, value: year }, year)))))),
+                React__default["default"].createElement(material.Select, { value: dateFns.getYear(date), onChange: handleYearChange, disableUnderline: true }, generateYears(date, 30).map((year) => (React__default["default"].createElement(material.MenuItem, { key: year, value: year }, year)))))),
         React__default["default"].createElement(material.Grid, { item: true, sx: { padding: "5px" } },
             React__default["default"].createElement(material.IconButton, { sx: {
                     padding: "10px",
