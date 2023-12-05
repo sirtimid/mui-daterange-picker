@@ -1,10 +1,10 @@
 {
     "name": "mui-daterange-picker",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A react date range picker implementation using @mui.",
-    "author": "ricard33",
+    "author": "sirtimid",
     "license": "MIT",
-    "repository": "ricard33/mui-daterange-picker",
+    "repository": "sirtimid/mui-daterange-picker",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "jsnext:main": "dist/index.es.js",
